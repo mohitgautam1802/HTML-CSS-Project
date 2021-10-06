@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://fontawesome.com/v6.0/icons?q=stars&s=solid%2Cbrands.css"> -->
+    <title>webdpro</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        min-height: 100vh;
+        width: 100%;
+        background-image: linear-gradient(
+            rgba(4, 9, 30, 0.7),
+            rgba(4, 9, 30, 0.7)
+          ),
+          url(imgproject1/banner.png); /* gerat method to make     bakgground slightly darker*/
+
+        background-position: center;
+        background-size: cover;
+        position: relative;
+      }
+      nav{
+          display: flex;
+          padding: 2% 6%;
+          align-items: center;
+          justify-content: space-between;
+      }
+      nav img{
+          width: 150px;
+      }
+
+      .nav-links {
+          /* display: flex; */
+          
+          text-align: right;
+      }
+      .nav-links ul li{
+          list-style: none;
+          display: inline-block;
+          padding: 8px 12px;
+          position: relative;
+      }
+      .nav-links ul li a{
+          color: white;
+          text-decoration: none;
+          font-size: 13px;
+
+      }
+      .nav-links ul li::after{
+          content: "";
+          width: 0%;                       /*   Learned a new hover effect6 technique */
+          height: 2px;
+          background: crimson;
+          display: block;
+          margin: auto;
+          transition: 1s;
+      }
+      .nav-links ul li:hover::after{
+          width: 100%;
+      }
+      .text-box {
+          width: 90%;
+          color: white;
+          position: absolute; 
+     
+          top: 50%;
+          left: 50%;
+
+          text-align: center;
+          transform: translate(-50%, -50%);
+         
+      }
+
+      .text-box h1{
+          font-size: 62px;
+      }
+      .text-box p{
+          margin: 10px 0 48px;
+          font-size: 14px;
+          color: white;
+      }
+
+      .hero-btn{
+          display: inline-block;
+          text-decoration: none;
+          color: white;
+          border: 2px solid white;
+          padding: 12px 34px;
+          font-size: 13px;
+          background: transparent;
+          position: relative;
+          cursor: pointer;
+
+      }
+
+      nav .fa{
+        display: none;
+      }
+
+      @media(max-width: 700px){
+        .text-box h1{
+          font-size: 20px;
+        }
+        .nav-links ul li{
+          display: block;
+
+        }
+
+        .nav-links{
+          position: absolute;
+          background: crimson;
+          height: 100vh;
+          width: 180px;
+          top: 0;
+          /* right: -200px; */
+          left: -4444px;
+          text-align: left;
+          z-index: 2;
+
+
+        }
+        nav .fa{
+          display: block;
+          color: white;
+          margin: 10px;
+          font-size: 22px;
+          cursor: pointer;
+        }
+      }
+
+      .row{
+        margin-top: 5%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2%;
+    margin-right: 2%;
+      }
+
+      .course-col{
+        flex-basis: 33%;
+        background: rgb(230, 197, 203);
+        border-radius: 10px;
+        margin-bottom: 5%;
+        padding: 20px 12px;
+        transition: 1s;
+        margin-left: 2%;
+        margin-right: 2%;
+        box-sizing: border-box;   /*box ban jaega or margin bhi nhi deni padegi*/
+
+      }
+
+      h3{
+        text-align: center;
+        font-weight: 600;
+        margin: 21px 0;
+      }
+      h1{
+        text-align: center;
+        font-weight: 600;
+        font-size: 45px;
+        margin: 10px 0;
+      }
+
+      .course-col:hover{
+        box-shadow: 0 0 20px 0px magenta;
+      }
+
+      .campus{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding-top: 55px;
+
+      }
+
+      .campus-col{
+        flex-basis: 32%;
+        border-radius: 10px;
+        margin-bottom:30px;
+        position: relative;
+        overflow: hidden; 
+      }
+
+      .campus-col img{
+        width: 100%;
+        /* display: block; */
+      }
+
+      .layer{
+        background-color: transparent;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.5s;
+      }
+
+      .layer:hover{
+        background: rgba(219, 88, 88, 0.5);
+      }
+
+      .layer h3{
+        width: 100%;
+        font-weight: 500;
+        color: white;
+        font-size: 26px;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%); 
+        position: absolute;
+      }
+
+      
+
+      @media(max-width: 700px){
+        .row{
+          flex-direction: column;
+        }
+      }
+
+
+      .facilities{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding-top: 100px;
+      }
+
+      .facilities-col {
+        flex-basis: 31%;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        text-align: left;
+      }
+
+      .facilities-col img{
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      .facilities-col h3{
+        margin-top: 16px;
+        margin-bottom: 15px;
+        text-align: left;
+      }
+
+      .facilities-col p{
+        padding: 0;
+      }
+
+      .testimonials{
+        width: 80%;
+        margin: auto;
+        text-align: center;
+        padding-top: 100px;
+      }
+
+      .testimonial-col{
+        flex-basis: 44%;
+        border-radius: 10px;
+        margin-bottom: 5%;
+        text-align: left;
+        background: rgb(245, 237, 239);
+        padding: 25px;
+        cursor: pointer;
+        display: flex;
+      }
+
+      .testimonial-col img{
+        height: 40px;
+        margin-left: 5px;
+        margin-right: 30px;
+        border-radius: 99%;
+      }
+
+      .testimonials-col{
+        padding: 0;
+      }
+
+      .testimonial-col h3{
+        margin-top: 15px;
+        text-align: left;
+      }
+
+      @media(max-width: 700px){
+        .testimonial-col img{
+          margin-left: 0px;
+          margin-right: 10px;
+        }
+      }
+
+      .cta{
+        margin: 100px auto;
+        width: 80%;
+        background-image: linear-gradient(
+            rgba(4, 9, 30, 0.7),
+            rgba(4, 9, 30, 0.7)
+          ),
+          url(imgproject1/banner2.jpg);
+        background-position: center;
+        background-size: cover;
+        border-radius: 10px;
+        text-align: center;
+        padding: 100px 0;
+        /* opacity: 6; */
+
+      }
+
+      .cta h1{
+        color: white;
+        margin-bottom: 40px;
+        padding: 0;
+      }
+
+      @media(max-width: 700px){
+        .cta h1{
+          font-size: 20px;
+        }
+      }
+
+
+
+      
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <section class="header">
+      <nav>
+        <img src="imgproject1/logo.png" alt="" srcset="" />
+        <div class="nav-links">
+          <i class="fa fa-times" onclick="hideMenu()"></i>
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT</a></li>
+            <li><a href="#">COURSE</a></li>
+            <li><a href="#">BLOG</a></li>
+            <li><a href="#">CONTACT</a></li>
+          </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+
+      </nav>
+    </section>
+    <div class="text-box">
+        <h1>World's Biggest University</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui aliquid perferendis libero labore quisquam magni dolore assumenda distinctio dicta et perspiciatis, enim, officiis magnam <br> rem voluptas eligendi totam, provident aliquam repellat tempore veritatis natus?</p>
+        <a href="#" class="hero-btn">Visit Us To More</a>
+    </div>
+    <section class="course">
+      <h1>Courses We Offer</h1>
+      <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ullam dolore,</p> -->
+
+      <div class="row">
+        <div class="course-col">
+          <h3>Degree</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat eos quod voluptatum neque soluta, ducimus animi odio. Nihil dolores saepe assumenda mollitia illo architecto, eius qui veniam quod, accusantium nesciunt doloremque quos repudiandae facere?Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="course-col">
+          <h3>Graduation</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat eos quod voluptatum neque soluta, ducimus animi odio. Nihil dolores saepe assumenda mollitia illo architecto, eius qui veniam quod, accusantium nesciunt doloremque quos repudiandae facere?Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+        <div class="course-col">
+          <h3>Intermediate</h3>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat eos quod voluptatum neque soluta, ducimus animi odio. Nihil dolores saepe assumenda mollitia illo architecto, eius qui veniam quod, accusantium nesciunt doloremque quos repudiandae facere?Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+        </div>
+      </div>
+    </section>
+    <section class="campus">
+      <h1>Our Global Campus</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus molestias deserunt beatae.</p>
+      <div class="row">
+        <div class="campus-col">
+          <img src="imgproject1/newyork.png" alt="">
+          <div class="layer">
+            <h3>NEWYORK</h3>
+          </div>
+        </div>
+        <div class="campus-col">
+          <img src="imgproject1/london.png" alt="">
+          <div class="layer">
+            <h3>LONDON</h3>
+          </div>
+        </div>
+        <div class="campus-col">
+          <img src="imgproject1/washington.png" alt="">
+          <div class="layer">
+            <h3>WASHINGTON</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="facilities">
+      <h1>Our Facilities</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quos et maxime?</p>
+
+      <div class="row">
+        <div class="facilities-col">
+          <img src="imgproject1/library.png" alt="">
+          <h3>World Class Library</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, corporis iusto? Vel voluptates, sit eveniet qui minus sequi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, tenetur.</p>
+        </div>
+        <div class="facilities-col">
+          <img src="imgproject1/basketball.png" alt="">
+          <h3>Largest Playground</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, corporis iusto? Vel voluptates, sit eveniet qui minus sequi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, tenetur.</p>
+        </div>
+        <div class="facilities-col">
+          <img src="imgproject1/cafeteria.png" alt="">
+          <h3>Cafeteria Facility</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, corporis iusto? Vel voluptates, sit eveniet qui minus sequi?Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam, tenetur.</p>
+        </div>
+      </div>
+    </section>
+    <section class="testimonials">
+      <h1>WHAT OUR STUDENT SAYS</h1>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A consequuntur accusamus quam.</p>
+
+      <div class="row">
+        <div class="testimonial-col">
+          <img src="imgproject1/user1.jpg" alt="">
+          <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aut sit quae magni tempore iste dicta, dolorum repellat, asperiores facilis tempora minus aspernatur culpa tenetur et reiciendis perferendis dignissimos saepe ad quis officia. Dolor officiis blanditiis voluptas recusandae iure molestiae sed reiciendis rem voluptates rerum!</p>
+            <h3>Christine Barley</h3>
+          </div>
+        </div>
+        <div class="testimonial-col">
+          <img src="imgproject1/user2.jpg" alt="">
+          <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita aut sit quae magni tempore iste dicta, dolorum repellat, asperiores facilis tempora minus aspernatur culpa tenetur et reiciendis perferendis dignissimos saepe ad quis officia. Dolor officiis blanditiis voluptas recusandae iure molestiae sed reiciendis rem voluptates rerum!</p>
+            <h3>Christine Barley</h3>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta">
+      <h1>Enroll For Our Various Online Courses <br> Anywhere From The World</h1>
+      <a href="" class="hero-btn">CONTACT US</a>
+      
+    </section>
+    <script>
+      var navlinks = document.getElementById("navLinks");
+      function showMenu(){
+        navLinks.style.left = "0";
+      }
+      function hideMenu(){
+        navLinks.style.left = "-4444px";
+      }
+    </script>
+  </body>
+</html>
